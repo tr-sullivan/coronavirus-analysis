@@ -1,0 +1,53 @@
+% Run in PositiveNegativeOverlays and SNPCalling folder
+homedir = pwd;
+SNPs_all = cell(0);
+
+cd('../SampleData');
+for n = 1:size(Unit9,1)
+    list = dir(['*2022*',Unit9(n,:),'*']);
+    cd(list(1).name);
+
+
+    comparison_mask = zeros(array_size);
+
+    comparison_mask(3,2:5) = 1;
+    comparison_mask(4,1:2) = 2;
+    comparison_mask(4,3:5) = 3;
+    comparison_mask(5,6) = 3;
+    comparison_mask(5,1:3) = 4;
+    comparison_mask(5,4:5) = 5;
+
+    load('DATA.mat');
+    d = DATA{4};
+    deriv_filter = zeros(size(d,1), size(d,2));
+
+    for i = 3:size(deriv_filter,1)-2
+        deriv_filter(i,:) = (1/12)*(-d(i+2,:)+8*d(i+1,:) - 8*d(i-1,:) + d(i-2,:));
+    end
+
+    deriv_max = max(deriv_filter(8:end,:));
+    deriv_max = reshape(deriv_max, array_size).';
+
+    SNPcalling = cell(0);
+    for i = 1:max(max(comparison_mask))
+        SNP_slopes = zeros(array_size);
+        for j = 1:array_size(1)
+            for k = 1:array_size(2)
+                if comparison_mask(j,k) == i
+                    SNP_slopes(j,k) = deriv_max(j,k);
+                end
+            end
+        end
+
+        [ind1,ind2] = find(SNP_slopes == max(max(SNP_slopes)));
+        SNPcalling{end+1} = tar_names_Optikos{array_size(2)*(ind1-1) + ind2};
+    end
+    disp(SNPcalling);
+    SNPs_all{end+1} = SNPcalling;
+    cd(homedir);
+end
+
+for n = 1:size(Unit9,1)
+    disp(Unit9(n,:));
+    disp(SNPs_all{n});
+end
