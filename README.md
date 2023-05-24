@@ -33,7 +33,7 @@ The main folder (Analysis Pipeline) includes 3 subfolders.
 - Each dataset can be analyzed in <5 minutes. Downloading the images is the largest overall contribution to the runtime. Post-processing for SNV detection and generation of positive-negative plots is quick. All analyses can be run on ThinkPad laptops. 
 
 ## Section IV. Instructions for Use
-See above section describing how to run demo data. 
+See above section describing how to run demo data. Upon downloading the zipped file containing all image data, ensure that it is unzipped directly into the main directory, i.e., there should be three folders in the main directory: MainAnalysis, PositiveNegativeOverlays and SNPCalling, and SampleData. SampleData should have individual subfolders with each of the datasets. 
 
 ## Section V. License
  Copyright 2023 [Andrew T. Sullivan, Vibha Rao, Tyler Rockwood, Jahnavi Gandhi, Sarah Gruzka, Logan O’Connor, Bonnie Wang, Katherine B. Ragan, David Yu Zhang, Dmitriy Khodakov]
