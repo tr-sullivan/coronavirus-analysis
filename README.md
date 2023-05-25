@@ -6,7 +6,7 @@ Software is designed to be run on MATLAB on a Windows computer. All MATLAB versi
 Aside from MATLAB and the required toolbox, no other installation steps are necessary. Ensure all included code is on the MATLAB path. 
 
 ## Section III. Demo
-A set of experimental data used in the manuscript is provided for demo purposes. These data can be downloaded at https://figshare.com/articles/dataset/SampleData/23154212 (DOI: 10.6084/m9.figshare.23154212). The structure of the included code and data is organized as follows: 
+A set of experimental data used in the manuscript is provided for demo purposes. These data can be downloaded at doi.org/10.6084/m9.figshare.23154212. The structure of the included code and data is organized as follows: 
 
 The main folder (Analysis Pipeline) includes 3 subfolders. 
 - Sample data contains several subfolders, each of which contains 60 images acquired from RT-caPCR experimental runs as described in the manuscript. Images were taken every 30 seconds and are saved in the .raw format. 
